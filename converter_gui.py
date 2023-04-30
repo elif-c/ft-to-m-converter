@@ -27,6 +27,9 @@ while True:
         case "convert":
             feet = int(value["feet_input"])
             inches = int(value["inches_input"])
+            if feet == 0 and inches == 0:
+                PySimpleGUI.popup("Please enter values", font=("Roboto", 12))
+                continue
             result = converter.convert(feet, inches)
             result = round(result, 2)
             window["result"].update(result)
